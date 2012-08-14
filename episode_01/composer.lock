@@ -1,0 +1,17 @@
+{
+    "hash": "460a49e5956e92c536a76401b996cc7a",
+    "packages": [
+        {
+            "package": "symfony/class-loader",
+            "version": "v2.0.16"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ]
+}
