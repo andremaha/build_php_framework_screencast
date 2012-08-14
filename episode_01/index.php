@@ -5,10 +5,11 @@
  *
  * @author      Andrey I. Esaulov <aesaulov@me.com>
  * @package     build_php_framework_screencast
+ * @version     0.1
  */
 
 // Load the autoloader
-require_once __DIR__ . 'autoload.php';
+require_once __DIR__ . '/autoload.php';
 
 // Get the name
 $input = $_GET['name'];
