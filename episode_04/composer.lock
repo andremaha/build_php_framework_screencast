@@ -1,0 +1,25 @@
+{
+    "hash": "6f1dabf7083e4711ff4171884a1f0e27",
+    "packages": [
+        {
+            "package": "symfony/class-loader",
+            "version": "v2.0.16"
+        },
+        {
+            "package": "symfony/http-foundation",
+            "version": "v2.0.16"
+        },
+        {
+            "package": "symfony/routing",
+            "version": "v2.0.16"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ]
+}
