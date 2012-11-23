@@ -5,7 +5,7 @@
  *
  * @author      Andrey I. Esaulov <aesaulov@me.com>
  * @package     build_php_framework_screencast
- * @version     0.3
+ * @version     0.4
  */
 
 use Symfony\Component\Routing\RouteCollection;
@@ -16,12 +16,12 @@ use Symfony\Component\HttpFoundation\Request;
 // Controller converted into the class
 class LeapYearController
 {
-    public function indexAction(Request $request)
+    public function indexAction($year)
     {
-        if (is_leap_year($request->attributes->get('year'))) {
-            return new Response('Yes, ' . $request->attributes->get('year') . ' is a leap year.');
+        if (is_leap_year($year)) {
+            return new Response('Yes, ' . $year . ' is a leap year.');
         } else {
-            return new Response('No, ' . $request->attributes->get('year') . ' is not a leap year.');
+            return new Response('No, ' . $year . ' is not a leap year.');
         }
     }
 }
