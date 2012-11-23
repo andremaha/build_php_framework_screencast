@@ -5,7 +5,7 @@
  *
  * @author      Andrey I. Esaulov <aesaulov@me.com>
  * @package     build_php_framework_screencast
- * @version     0.2
+ * @version     0.3
  */
 
 use Symfony\Component\Routing\RouteCollection;
@@ -37,8 +37,19 @@ $routes->add('hello', new Route('/hello/{name}', array(
 
         return $response;
     })));
-$routes->add('bye', new Route('/bye'));
-$routes->add('secret', new Route('/secret'));
+$routes->add('bye', new Route('/bye', array(
+    '_controller' => function($request) {
+        // Add the URL generator that is used in the template
+        //$request->attributes->set('generator', $request->attributes->get('generator'));
+
+        $response = render_template($request);
+
+        return $response;
+    }
+)));
+$routes->add('secret', new Route('/secret', array(
+    '_controller' => 'render_template'
+)));
 $routes->add('leap_year', new Route('/is_leap_year/{year}', array(
     'year' => null,
     '_controller' => function($request) {

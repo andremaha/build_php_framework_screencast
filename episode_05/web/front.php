@@ -41,6 +41,11 @@ $path = $request->getPathInfo();
 try {
     // We're attaching additional info to the HTTP Request, so that we can use it in our render template function
     $request->attributes->add($matcher->match($request->getPathInfo()));
+   
+    // We will need URLgenerator to create links in templates
+    $generator = new UrlGenerator($routes, $context);
+    $request->attributes->add(array('generator' => $generator));
+
     $response = call_user_func($request->attributes->get('_controller'), $request);
 } catch (ResourceNotFoundException $e) {
     $response->setStatusCode(404);
