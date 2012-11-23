@@ -18,9 +18,9 @@ To run the corresponding version of the framework you need to follow this simple
 
 - go to the episode folder:
 
-	$ cd episode_03
+		$ cd episode_03
 
 - update the dependencies (listed in the composer.json file):
 	
-	$ php composer.phar update
+		$ php composer.phar update
 
