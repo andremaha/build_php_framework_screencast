@@ -2,9 +2,9 @@
 
 ## History
 
-It all started in the December 2011, when Fabien Potencier released his multi-step tutorial (*Create your own framework... on top of the Symfony2 Components*)[http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1]. The tutorial was very well received by the community and became the de-facto stadard on how to write modern web applications.
+It all started in the December 2011, when Fabien Potencier released his multi-step tutorial [*Create your own framework... on top of the Symfony2 Components*](http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1). The tutorial was very well received by the community and became the de-facto stadard on how to write modern web applications.
 
-In April 2012 I have decided to repackage the original tutorial in the form of video screencasts, so that even more members of the community, especially the visual learners, could be reached and tought the best practices of using Symfony2 Components. That is how (*Build Your Own PHP Framework Screencast Series*)[http://object-oriented-php/] came to be.
+In April 2012 I have decided to repackage the original tutorial in the form of video screencasts, so that even more members of the community, especially the visual learners, could be reached and tought the best practices of using Symfony2 Components. That is how [*Build Your Own PHP Framework Screencast Series*](http://object-oriented-php.com/2012/03/screencast-series-creating-own-php-framework-using-symfony2-components-episode-1/) came to be.
 
 ## Code
 
