@@ -27,7 +27,7 @@ class Framework
     // In order to use test doubles in phpunit, we need to replace the concrete classes with interfaces
     public function __construct(EventDispatcher $dispatcher, $matcher, ControllerResolverInterface $resolver)
     {
-        $this->matcher  = $matcher;
+        $this->matcher = $matcher;
         $this->resolver = $resolver;
         $this->dispatcher = $dispatcher;
     }
@@ -44,7 +44,8 @@ class Framework
         } catch (ResourceNotFoundException $e) {
             $response = new Response('Nope, no such page!', 404);
         } catch (\Exception $e) {
-            $response = new Response("Something went terribly wrong. Server is confused. What have you done?! We are all doomed! \n" . $e->getMessage() . "\n" .  $e->getTraceAsString(), 500);
+            $response = new Response("Something went terribly wrong. Server is confused. What have you done?! We are all doomed! \n" . $e->getMessage(
+            ) . "\n" . $e->getTraceAsString(), 500);
         }
 
         // dispatch an event called 'response' just before sending the response
