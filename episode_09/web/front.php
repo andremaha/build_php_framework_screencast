@@ -3,7 +3,8 @@
  *
  * That is the framework's front controller. This is the single entry script - all requests go here and all responses
  * get routed from here.
- * In the Episode_09 we are adding the event listener for the 'response' event.
+ * In the Episode_09 we are adding the event listener for the 'response' event. And then we refactor those listeners
+ * and use the subscribers - because it makes our application more decoupled.
  * @see Simplex\ResponseEvent
  *
  * @author      Andrey I. Esaulov <aesaulov@me.com>
@@ -43,15 +44,10 @@ $matcher = new UrlMatcher($routes, $context);
 // The resolver will take care of the lazy loading of our controller classes
 $resolver = new ControllerResolver();
 
-// Register an event listener with the EventDispatcher Component
+// Subscribe to a couple of events with the EventDispatcher Component
 $dispatcher = new EventDispatcher();
-// Add the Google-Listener which adds the GA-Code to the content
-$dispatcher->addListener('response', array(new Simplex\GoogleListener(), 'onResponse'));
-
-// Add the Content-Length-Listener which adds the length of the content to headers
-// This should be one of the last events to run, so that all the changes to the content would have been made by the previous events.
-// So we're setting up the lowest possible priority -255
-$dispatcher->addListener('response', array(new Simplex\ContentLengthListener(), 'onResponse'), -255);
+$dispatcher->addSubscriber(new Simplex\GoogleListener());
+$dispatcher->addSubscriber(new Simplex\ContentLengthListener());
 
 // Load our framework to handle Requests
 $framework = new Simplex\Framework($dispatcher, $matcher, $resolver);
