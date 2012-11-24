@@ -8,8 +8,10 @@ In March 2012 I have decided to repackage the original tutorial in the form of v
 
 ## Code
 
-The screencast is build out of 12 episodes - each one of them is and improvement, or refactored version of the previous. That was the reason why Fabien didn't want to publish the source code of the tutorial. The tutorial is supposed to show the framework in the making, and not offer the final result. In his own words: 
->"this seris is about writing your own framework, not about creating a framework that you can use without modification".
+The screencast is build out of 12 episodes - each one of them is and improvement, or the refactored version of the previous. So essentially, each episode is the work in progress towards the better framework.
+
+That was the reason why Fabien didn't want to publish the source code of the tutorial. The tutorial is supposed to show the framework in the making, and not offer the final result. In his own words: 
+>"this series is about writing your own framework, not about creating a framework that you can use without modification".
 
 I decided to include the source code for each episode as a separate folder. This way, on one hand, you can follow the evolution of the framework as the screencast progresses, on the other - you still get the benifit of working code - the framework version you can run from the each folder.
 
