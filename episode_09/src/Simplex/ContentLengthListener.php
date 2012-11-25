@@ -15,7 +15,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class ContentLengthListener implements EventSubscriberInterface
 {
     public function onResponse(ResponseEvent $event) {
-        $response = $event->getRequest();
+        $response = $event->getResponse();
         $headers = $response->headers;
 
         if (!$headers->has('Content-Length') && !$headers->has('Transfer-Encoding')) {

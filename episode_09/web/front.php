@@ -24,10 +24,13 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
-use Symfony\Component\EventDispatcher\EventDipatcher;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 // Form the request from all possible sources - $_GET, $_POST, $_FILE, $_COOKIE, $_SESSION
+// TEST with command line
+// $request = Request::create('/is_leap_year/2034');
 $request = Request::createFromGlobals();
+
 
 // Form the empty response
 $response = new Response();
@@ -53,4 +56,6 @@ $dispatcher->addSubscriber(new Simplex\ContentLengthListener());
 $framework = new Simplex\Framework($dispatcher, $matcher, $resolver);
 $response = $framework->handle($request);
 
+// TEST with command line
+//echo $response;
 $response->send();
