@@ -25,10 +25,12 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\HttpKernel\HttpCache\HttpCache;
+use Symfony\Component\HttpKernel\HttpCache\Store;
 
 // Form the request from all possible sources - $_GET, $_POST, $_FILE, $_COOKIE, $_SESSION
 // TEST with command line
-// $request = Request::create('/is_leap_year/2034');
+//$request = Request::create('/is_leap_year/2012');
 $request = Request::createFromGlobals();
 
 
@@ -54,8 +56,9 @@ $dispatcher->addSubscriber(new Simplex\ContentLengthListener());
 
 // Load our framework to handle Requests
 $framework = new Simplex\Framework($dispatcher, $matcher, $resolver);
+$framework = new HttpCache($framework, new Store(__DIR__ . '/../cache'));
 $response = $framework->handle($request);
 
 // TEST with command line
-//echo $response;
+// echo $response;
 $response->send();
