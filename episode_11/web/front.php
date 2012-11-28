@@ -27,6 +27,9 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\HttpCache\HttpCache;
 use Symfony\Component\HttpKernel\HttpCache\Store;
+use Symfony\Component\HttpKernel\EventListener\RouterListener;
+use Symfony\Component\HttpKernel\Exception\FlattenException;
+use Symfony\Component\HttpKernel\EventListener\ExceptionListener;
 
 // Form the request from all possible sources - $_GET, $_POST, $_FILE, $_COOKIE, $_SESSION
 // TEST with command line
@@ -51,11 +54,16 @@ $resolver = new ControllerResolver();
 
 // Subscribe to a couple of events with the EventDispatcher Component
 $dispatcher = new EventDispatcher();
-$dispatcher->addSubscriber(new Simplex\GoogleListener());
-$dispatcher->addSubscriber(new Simplex\ContentLengthListener());
+$dispatcher->addSubscriber(new RouterListener($matcher));
+
+// Introducing ExceptionListener to handle 404s and 500s
+$dispatcher->addSubscriber(new ExceptionListener('Calendar\\Controller\\ErrorController::exceptionAction'));
+
+// Register the plain text response listener
+$dispatcher->addSubscriber(new Simplex\StringResponseListener());
 
 // Load our framework to handle Requests
-$framework = new Simplex\Framework($dispatcher, $matcher, $resolver);
+$framework = new Simplex\Framework($dispatcher, $resolver);
 $framework = new HttpCache($framework, new Store(__DIR__ . '/../cache'));
 $response = $framework->handle($request);
 
